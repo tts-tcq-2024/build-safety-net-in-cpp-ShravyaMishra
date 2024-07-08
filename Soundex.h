@@ -1,16 +1,16 @@
 #ifndef SOUNDEX_H
 #define SOUNDEX_H
 
+#include <unordered_map>
+#include <cctype>
 #include <string>
+#include <numeric>
 
-class Soundex {
-public:
-    static char getSoundexCode(char c);
-    static bool isHW(char c);
-    static bool shouldAppend(char currentCode, char lastCode, char nextChar);
-    static std::string accumulateSoundexCodes(const std::string& name);
-    static std::string padSoundex(const std::string& soundex);
-    static std::string generateSoundex(const std::string& name);
-};
+char getSoundexCode(char c);
+bool isHW(char c);
+bool shouldAppend(char code, char prevCode, char currentChar);
+std::string accumulateSoundexCodes(const std::string& name);
+std::string padSoundex(const std::string& soundex);
+std::string generateSoundex(const std::string& name);
 
 #endif // SOUNDEX_H
